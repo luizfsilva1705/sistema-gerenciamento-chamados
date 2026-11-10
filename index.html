@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Sistema de Gerenciamento de Chamados</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Sistema de Gerenciamento de Chamados</h1>
+    <p>Painel de controle de suporte técnico</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="titulo-dashboard">
+      <h2 id="titulo-dashboard">Dashboard</h2>
+
+      <div class="indicadores">
+        <article class="card">
+          <h3>Total de chamados</h3>
+          <p id="total-chamados">0</p>
+        </article>
+
+        <article class="card">
+          <h3>Chamados abertos</h3>
+          <p id="chamados-abertos">0</p>
+        </article>
+
+        <article class="card">
+          <h3>Em andamento</h3>
+          <p id="chamados-andamento">0</p>
+        </article>
+
+        <article class="card">
+          <h3>Resolvidos</h3>
+          <p id="chamados-resolvidos">0</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">Lista de chamados</h2>
+
+      <button type="button" id="novo-chamado">
+        + Novo chamado
+      </button>
+
+<form id="form-chamado" class="formulario" hidden>
+  <h3>Cadastrar novo chamado</h3>
+
+  <div class="campo">
+    <label for="titulo">Título do chamado</label>
+    <input
+      type="text"
+      id="titulo"
+      name="titulo"
+      placeholder="Ex.: Erro ao acessar sistema"
+      maxlength="100"
+      required
+    >
+  </div>
+
+  <div class="campo">
+    <label for="descricao">Descrição</label>
+    <textarea
+      id="descricao"
+      name="descricao"
+      rows="4"
+      placeholder="Descreva o problema encontrado"
+      required
+    ></textarea>
+  </div>
+
+  <div class="campo">
+    <label for="prioridade">Prioridade</label>
+    <select id="prioridade" name="prioridade" required>
+      <option value="">Selecione a prioridade</option>
+      <option value="Baixa">Baixa</option>
+      <option value="Média">Média</option>
+      <option value="Alta">Alta</option>
+    </select>
+  </div>
+
+  <div class="acoes-formulario">
+    <button type="submit">Salvar chamado</button>
+    <button type="button" id="cancelar-chamado">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+
+      <div class="tabela-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Título</th>
+              <th scope="col">Prioridade</th>
+              <th scope="col">Status</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-chamados">
+            <tr>
+              <td colspan="5">
+                Nenhum chamado cadastrado.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
